@@ -1,3 +1,3 @@
 import styled from 'styled-components/native';
 
-export const JobsList = styled.FlatList``;
+export const DataList = styled.FlatList``;

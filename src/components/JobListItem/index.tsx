@@ -1,8 +1,8 @@
 import React from 'react';
 import {ItemWrapper, TitleWrapper, Title, Subtitle, LogoImage} from './styled';
-const DEFAULT_LOGO_URL = 'https://reactnative.dev/img/tiny_logo.png';
+import DEFAULT_LOGO_URL from '../../config/constants/urls';
 
-const ListItem = ({title, subtitle, logo, onPress}) => (
+const JobListItem = ({title, subtitle, logo, onPress}) => (
   <ItemWrapper onPress={onPress}>
     <TitleWrapper>
       <LogoImage
@@ -16,4 +16,4 @@ const ListItem = ({title, subtitle, logo, onPress}) => (
   </ItemWrapper>
 );
 
-export default ListItem;
+export default JobListItem;

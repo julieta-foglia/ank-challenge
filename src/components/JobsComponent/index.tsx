@@ -1,11 +1,10 @@
 import React from 'react';
-import {JobsList} from './styled';
-import {ListItem} from '../../components';
+import {JobListItem, List} from '../../components';
 
-const JobCard = ({ jobs }) => {
+const JobsComponent = ({ jobs }) => {
 
   const renderItem = ({item}) => (
-    <ListItem
+    <JobListItem
       title={item.title}
       subtitle={item.commitment.title}
       logo={item.logoUrl}
@@ -14,12 +13,11 @@ const JobCard = ({ jobs }) => {
     );
 
   return (
-    <JobsList
+    <List
       data={jobs}
       renderItem={renderItem}
-      keyExtractor={(item) => item.id}
     />
   );
 };
 
-export default JobCard;
+export default JobsComponent;

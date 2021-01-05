@@ -8,10 +8,15 @@ export const ItemWrapper = styled.TouchableOpacity`
     border-radius: 10;
 `;
 
-export const TitleWrapper = styled.View``;
+export const TitleWrapper = styled.View`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8;
+`;
 
 export const Title = styled.Text`
   font-size: 22;
+  font-weight: 600;
 `;
 
 export const Subtitle = styled.Text`
@@ -21,4 +26,5 @@ export const Subtitle = styled.Text`
 export const LogoImage = styled.Image`
     width: 30;
     height: 30;
+    margin-right: 8;
 `;

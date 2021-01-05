@@ -1,8 +1,8 @@
 import React from 'react';
-import { JobCard } from '../../components';
+import { JobsComponent } from '../../components';
 
 const JobDescription = ({ route }) => {
-  return <JobCard jobs={route.params.jobs}/>;
+  return <JobsComponent jobs={route.params.jobs}/>;
 };
 
 export default JobDescription;

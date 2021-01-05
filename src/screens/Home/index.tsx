@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import {gql, useQuery} from '@apollo/client';
-import {CompanyCard} from '../../components';
+import {useQuery} from '@apollo/client';
+import {CompaniesComponent} from '../../components';
 import COMPANIES_QUERY from '../../config/constants/companiesQuery';
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
   
   return (
     <ScrollView contentInsetAdjustmentBehavior="automatic">
-      <CompanyCard companies={companiesQueries.loading ?  [] : companiesQueries.data.companies} />
+      <CompaniesComponent companies={companiesQueries.loading ?  [] : companiesQueries.data.companies} />
     </ScrollView>
   );
 };

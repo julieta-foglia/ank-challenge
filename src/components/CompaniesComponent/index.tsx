@@ -1,13 +1,12 @@
 import React from 'react';
-import {CompaniesList} from './styled';
-import {ListItem} from '../../components';
+import {List, CompanyListItem} from '../../components';
 import { useNavigation } from '@react-navigation/native';
 
-const CompanyCard = ({companies}) => {
+const CompaniesComponent = ({companies}) => {
   const navigation = useNavigation();
 
   const renderItem = ({item}) => (
-    <ListItem
+    <CompanyListItem
       title={item.name}
       subtitle={item.websiteUrl}
       logo={item.logoUrl}
@@ -18,12 +17,11 @@ const CompanyCard = ({companies}) => {
     );
 
   return (
-    <CompaniesList
+    <List
       data={companies}
       renderItem={renderItem}
-      keyExtractor={(item) => item.id}
     />
   );
 };
 
-export default CompanyCard;
+export default CompaniesComponent;
