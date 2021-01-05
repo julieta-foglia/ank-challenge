@@ -1,13 +1,36 @@
 import React, { useState } from 'react';
-import { TextInput } from 'react-native';
-import {ItemWrapper, TitleWrapper, Title, Subtitle, LogoImage} from './styled';
+import { Text } from 'react-native';
+import {Input, FormWrapper} from './styled';
+import { Formik } from 'formik';
+import { schema } from './validations';
 
 const JobApplicationForm = () => {
   const [name, setName] = useState('Name');
+  const [lastName, setLastName] = useState('LastName');
 
   return (
-    <TextInput value={name} />
-  );
+    <Formik
+     initialValues={{ name: '' }}
+     onSubmit={values => console.log(values)}
+     validationSchema={schema}
+   > {({ setFieldValue, handleBlur, handleSubmit, values, errors, touched }) =>
+   (
+   <FormWrapper>
+      <Input 
+        onChangeText={() => setFieldValue('name', values.name)}
+        onBlur={handleBlur('name')}
+        value={values.name}
+      />
+      {errors.name && touched.name && (
+        <Text>
+          {errors.name}
+        </Text>
+      )}
+          
+    </FormWrapper>
+    )}
+    </Formik>
+   )
 }
 
 export default JobApplicationForm;

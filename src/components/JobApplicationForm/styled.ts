@@ -1,8 +1,14 @@
 import styled from 'styled-components/native';
 
-export const ItemWrapper = styled.TextInput`
-    background-color: #F8A285;
-    padding: 10px;
-    border-radius: 10;
-    border-color: black;
+export const FormWrapper = styled.View`
+    width: 100%;
+`;
+
+export const Input = styled.TextInput`
+    border: 1px;
+    border-color: gray;
+    border-radius: 10px;
+    height: 40px;
+    margin-vertical: 8px;
+    padding: 8px;
 `;
