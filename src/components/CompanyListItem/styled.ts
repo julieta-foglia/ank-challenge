@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const ItemWrapper = styled.TouchableOpacity`
     background-color: #F8A285;
     padding: 20px;
-    margin-vertical: 8;
+    margin-top: 16;
     margin-horizontal: 16;
     border-radius: 10;
 `;

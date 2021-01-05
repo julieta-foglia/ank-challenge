@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {JobListItem, List} from '../../components';
 
 const JobsComponent = ({ jobs }) => {
+  const navigation = useNavigation();
 
   const renderItem = ({item}) => (
     <JobListItem
@@ -10,7 +12,9 @@ const JobsComponent = ({ jobs }) => {
       countries={item.countries}
       commitment={item.commitment.title}
       remote={item.remotes}
-      onPress={() => {}}
+      onPress={() => navigation.navigate('Job Application', {
+        job: item.title,
+      })}
     />
     );
 
