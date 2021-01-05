@@ -12,3 +12,7 @@ export const Input = styled.TextInput`
     margin-vertical: 8px;
     padding: 8px;
 `;
+
+export const ErrorText = styled.Text`
+    color: red;
+`;

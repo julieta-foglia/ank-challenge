@@ -16,6 +16,8 @@
     "@react-navigation/native": "^5.8.10",
     "@react-navigation/stack": "^5.12.8",
     "@types/styled-components": "^5.1.5",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "formik": "^2.2.6",
     "graphql": "^15.4.0",
     "install": "^0.13.0",

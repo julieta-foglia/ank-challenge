@@ -3,28 +3,28 @@ import styled from 'styled-components/native';
 export const ItemWrapper = styled.TouchableOpacity`
     background-color: #F8A285;
     padding: 20px;
-    margin-top: 16;
-    margin-horizontal: 16;
-    border-radius: 10;
+    margin-top: 16px;
+    margin-horizontal: 16px;
+    border-radius: 10px;
 `;
 
 export const TitleWrapper = styled.View`
   display: flex;
   flex-direction: row;
-  margin-bottom: 8;
+  margin-bottom: 8px;
 `;
 
 export const Title = styled.Text`
-  font-size: 22;
+  font-size: 22px;
   font-weight: 600;
 `;
 
 export const Subtitle = styled.Text`
-  font-size: 16;
+  font-size: 16px;
 `;
 
 export const LogoImage = styled.Image`
-    width: 30;
-    height: 30;
-    margin-right: 8;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
 `;
