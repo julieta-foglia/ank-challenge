@@ -2,8 +2,8 @@ import React from 'react';
 import {ItemWrapper, TitleWrapper, Title, Subtitle, LogoImage} from './styled';
 const DEFAULT_LOGO_URL = 'https://reactnative.dev/img/tiny_logo.png';
 
-const ListItem = ({title, subtitle, logo}) => (
-  <ItemWrapper>
+const ListItem = ({title, subtitle, logo, onPress}) => (
+  <ItemWrapper onPress={onPress}>
     <TitleWrapper>
       <LogoImage
         source={{

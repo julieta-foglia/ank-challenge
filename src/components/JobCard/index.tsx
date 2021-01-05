@@ -1,8 +1,25 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {JobsList} from './styled';
+import {ListItem} from '../../components';
 
-const JobCard = ({companyId}) => {
-  return <Text>Hola</Text>;
+const JobCard = ({ jobs }) => {
+
+  const renderItem = ({item}) => (
+    <ListItem
+      title={item.title}
+      subtitle={item.commitment.title}
+      logo={item.logoUrl}
+      onPress={() => {}}
+    />
+    );
+
+  return (
+    <JobsList
+      data={jobs}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id}
+    />
+  );
 };
 
 export default JobCard;

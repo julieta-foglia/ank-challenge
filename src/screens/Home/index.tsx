@@ -1,41 +1,17 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import {gql, useQuery} from '@apollo/client';
 import {CompanyCard} from '../../components';
-
-const COMPANIES_QUERY = gql`
-  query Companies {
-    companies {
-      id
-      name
-      websiteUrl
-      logoUrl
-      jobs {
-        id
-        title
-        commitment {
-          title
-        }
-        cities {
-          id
-          name
-        }
-        countries {
-          id
-          name
-        }
-        remotes {
-          id
-          name
-        }
-      }
-    }
-  }
-`;
+import COMPANIES_QUERY from '../../config/constants/companiesQuery';
 
 const Home = () => {
   const companiesQueries = useQuery(COMPANIES_QUERY);
   
-  return <CompanyCard companies={companiesQueries.loading ?  [] : companiesQueries.data.companies} />;
+  return (
+    <ScrollView contentInsetAdjustmentBehavior="automatic">
+      <CompanyCard companies={companiesQueries.loading ?  [] : companiesQueries.data.companies} />
+    </ScrollView>
+  );
 };
 
 export default Home;

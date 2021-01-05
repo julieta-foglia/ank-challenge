@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
-export const ItemWrapper = styled.View`
-    background-color: #f9c2ff;
+export const ItemWrapper = styled.TouchableOpacity`
+    background-color: #F8A285;
     padding: 20px;
     margin-vertical: 8;
     margin-horizontal: 16;

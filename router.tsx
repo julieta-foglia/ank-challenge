@@ -14,21 +14,15 @@ const StackNavigator = () => {
       headerMode="screen"
       screenOptions={{
         headerTintColor: 'white',
-        headerStyle: {backgroundColor: 'tomato'},
+        headerStyle: {backgroundColor: '#F5774C'},
       }}>
       <Stack.Screen
         name="Home"
         component={Home}
-        options={{
-          title: 'Homee',
-        }}
       />
       <Stack.Screen
-        name="JobDescription"
+        name="Jobs"
         component={JobDescription}
-        options={{
-          title: 'Job Description',
-        }}
       />
     </Stack.Navigator>
   );
