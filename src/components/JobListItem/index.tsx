@@ -1,19 +1,20 @@
 import React from 'react';
-import {ItemWrapper, TitleWrapper, Title, Subtitle, LogoImage} from './styled';
-import DEFAULT_LOGO_URL from '../../config/constants/urls';
+import { ItemWrapper, Title, Subtitle } from './styled';
+import { isNonEmptyArray } from '@apollo/client/utilities';
 
-const JobListItem = ({title, subtitle, logo, onPress}) => (
+const JobListItem = ({title, cities, countries, commitment, remote, onPress}) => {
+  const cityNames = isNonEmptyArray(cities) ? cities.map(({ name }) => name).join(', ') : '-';
+  const countryNames = isNonEmptyArray(countries) ? countries.map(({ name }) => name).join(', ') : '-';
+
+
+  return (
   <ItemWrapper onPress={onPress}>
-    <TitleWrapper>
-      <LogoImage
-        source={{
-          uri: logo ? logo : DEFAULT_LOGO_URL,
-        }}
-      />
-      <Title>{title}</Title>
-    </TitleWrapper>
-    <Subtitle>{subtitle}</Subtitle>
+    <Title>{title}</Title>
+    <Subtitle>City: {cityNames}</Subtitle>
+    <Subtitle>Country: {countryNames}</Subtitle>
+    <Subtitle>Commitment: {commitment}</Subtitle>
+    <Subtitle>Remote: {isNonEmptyArray(remote) ? 'Yes' : 'No'}</Subtitle>
   </ItemWrapper>
-);
+);}
 
 export default JobListItem;

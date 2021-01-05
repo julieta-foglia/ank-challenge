@@ -6,8 +6,10 @@ const JobsComponent = ({ jobs }) => {
   const renderItem = ({item}) => (
     <JobListItem
       title={item.title}
-      subtitle={item.commitment.title}
-      logo={item.logoUrl}
+      cities={item.cities}
+      countries={item.countries}
+      commitment={item.commitment.title}
+      remote={item.remotes}
       onPress={() => {}}
     />
     );
