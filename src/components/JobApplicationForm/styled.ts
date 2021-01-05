@@ -16,3 +16,15 @@ export const Input = styled.TextInput`
 export const ErrorText = styled.Text`
     color: red;
 `;
+
+export const ButtonWrapper = styled.View`
+    background: #F5774C;
+    color: white;
+    font-size: 10px;
+    border-radius: 10px;
+    margin-horizontal: 8px;
+    margin-top: 8px;
+    padding-vertical: 8px;
+`;
+
+export const SubmitButton = styled.Button``;
