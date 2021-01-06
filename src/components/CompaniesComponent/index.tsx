@@ -21,7 +21,7 @@ const CompaniesComponent = ({companies}) => {
     <>
     <Title>Companies</Title>
     <List
-      data={companies}
+      data={companies} 
       renderItem={renderItem}
     />
     </>

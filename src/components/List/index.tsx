@@ -7,7 +7,7 @@ const List = ({data, renderItem}) => {
     <DataList
       data={data}
       renderItem={renderItem}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item: { id: string; }) => item.id}
     />
   );
 };

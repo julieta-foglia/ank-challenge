@@ -17,7 +17,7 @@ const FavedJobs = () => {
   const getFavorites = async () => {
       try {
         const jsonValue = await AsyncStorage.getItem('faved-jobs');
-        if(jsonValue) setFavs(JSON.parse(jsonValue));
+        setFavs(JSON.parse(jsonValue) || []);
       } catch(e) {
         // read key error
       }
@@ -39,9 +39,14 @@ const FavedJobs = () => {
     );
   }
 
-  const removeFavorites = () => {
-    AsyncStorage.removeItem('faved-jobs');
+  const removeFavorites = async () => {
+    try {
+    await AsyncStorage.removeItem('faved-jobs');
     getFavorites();
+  } catch (error) {
+    console.log(error);
+  }
+
   }
 
   return (
