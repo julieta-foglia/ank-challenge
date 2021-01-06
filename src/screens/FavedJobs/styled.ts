@@ -8,12 +8,12 @@ export const Wrapper = styled.View`
 `;
 
 export const ButtonWrapper = styled.View`
-    background: #F5774C;
-    color: white;
-    font-size: 10px;
-    border-radius: 10px;
-    margin: 16px;
-    padding: 8px;
+  background: #f5774c;
+  color: white;
+  font-size: 10px;
+  border-radius: 10px;
+  margin: 16px;
+  padding: 8px;
 `;
 
 export const RemoveButton = styled.Button``;

@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import {gql} from '@apollo/client';
 
 const COMPANIES_QUERY = gql`
   query Companies {
