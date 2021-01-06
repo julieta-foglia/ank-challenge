@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const ItemWrapper = styled.TouchableOpacity`
-    background-color: #F8A285;
+    background-color: #dcdcdc;
     padding: 20px;
     margin-top: 16px;
     margin-horizontal: 16px;
@@ -27,4 +27,5 @@ export const LogoImage = styled.Image`
     width: 30px;
     height: 30px;
     margin-right: 8px;
+    border-radius: 10px;
 `;

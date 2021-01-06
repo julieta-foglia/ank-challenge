@@ -1,10 +1,13 @@
 import React from 'react';
+import { Text } from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from './src/screens/Home';
 import JobDescription from './src/screens/JobDescription';
 import JobApplication from './src/screens/JobApplication';
+import FavedJobs from './src/screens/FavedJobs';
+import HeaderRight from './src/components/HeaderRight';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +19,9 @@ const StackNavigator = () => {
       screenOptions={{
         headerTintColor: 'white',
         headerStyle: {backgroundColor: '#F5774C'},
+        headerRight: () => (
+          <HeaderRight />
+        ),
       }}>
       <Stack.Screen
         name="Home"
@@ -28,6 +34,10 @@ const StackNavigator = () => {
       <Stack.Screen
         name="Job Application"
         component={JobApplication}
+      />
+      <Stack.Screen
+        name="Faved Jobs"
+        component={FavedJobs}
       />
     </Stack.Navigator>
   );

@@ -7,6 +7,7 @@ const JobsComponent = ({ jobs }) => {
 
   const renderItem = ({item}) => (
     <JobListItem
+      id={item.id}
       title={item.title}
       cities={item.cities}
       countries={item.countries}

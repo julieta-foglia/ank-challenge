@@ -1,4 +1,5 @@
 import React from 'react';
+import { Title } from './styled';
 import {List, CompanyListItem} from '../../components';
 import { useNavigation } from '@react-navigation/native';
 
@@ -17,10 +18,13 @@ const CompaniesComponent = ({companies}) => {
     );
 
   return (
+    <>
+    <Title>Companies</Title>
     <List
       data={companies}
       renderItem={renderItem}
     />
+    </>
   );
 };
 
