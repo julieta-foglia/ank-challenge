@@ -1,14 +1,14 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { Wrapper, Title} from './styled';
+import { useNavigation } from '@react-navigation/native';
 
-const HeaderRight = () => {
+const HeaderRight = ({ title, navigateTo }) => {
   const navigation = useNavigation();
 
   return (
-    <Wrapper onPress={() => navigation.navigate('Faved Jobs')}>
+    <Wrapper onPress={() => navigation.navigate(navigateTo)}>
         <Title>
-            Favs
+            {title}
         </Title>
     </Wrapper>
   );

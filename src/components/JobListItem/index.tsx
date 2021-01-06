@@ -5,6 +5,7 @@ import { isNonEmptyArray } from '@apollo/client/utilities';
 import { CardWrapper, JobWrapper, Title, Subtitle, IconWrapper, Icon } from './styled';
 import FavOutline from '../../assets/fav-outline.png';
 import FavFilled from '../../assets/fav-filled.png';
+import { REMOVE_TEXT, SAVE_TEXT } from '../../config/constants/texts';
 
 const JobListItem = ({id, title, cities, countries, commitment, remote, onPress}) => {
   const [isFav, setIsFav] = useState(false);
@@ -13,29 +14,32 @@ const JobListItem = ({id, title, cities, countries, commitment, remote, onPress}
 
   useEffect(() => {
     isJobInFavorites();
-  }, []);
+  }, [isFav]);
 
   const isJobInFavorites = async () => {
     try {
-      const jsonValue = await AsyncStorage.getItem(id);
-      const jobFound = jsonValue != null ? true : false;
-      setIsFav(jobFound)
+      const jsonValue = await AsyncStorage.getItem('faved-jobs');
+      console.log(jsonValue); 
+      if (jsonValue) {
+        const savedJobs = JSON.parse(jsonValue);
+        setIsFav(savedJobs.some((job) => job.id === id));
+      }
     } catch(e) {
       // read error
     }
   }
 
-  const confirmSave = () => {
+  const confirmAction = () => {
     Alert.alert(
-      "Save",
-      "Do you want to save this job to favorites?",
+      "Confirm",
+      isFav? REMOVE_TEXT : SAVE_TEXT,
       [
         {
           text: 'Cancel',
           onPress: () => console.log('Cancel Pressed'),
           style: 'cancel'
         },
-        { text: "OK", onPress: () => saveJobToFavorites(), }
+        { text: "OK", onPress: () => isFav? removeJobFromFavorites() : saveJobToFavorites() }
       ],
       { cancelable: false }
     );
@@ -43,8 +47,25 @@ const JobListItem = ({id, title, cities, countries, commitment, remote, onPress}
 
   const saveJobToFavorites = async () => {
     try {
-      const jsonValue = JSON.stringify({ id, title, cities, countries, commitment, remote});
-      await AsyncStorage.setItem(id, jsonValue);
+      const jsonValue = await AsyncStorage.getItem('faved-jobs');
+      const savedJobs = JSON.parse(jsonValue || "[]");
+      const newSavedJobs = [...savedJobs, { id, title, cities, countries, commitment, remote}];
+      await AsyncStorage.setItem('faved-jobs', JSON.stringify(newSavedJobs));
+
+      setIsFav(true);
+    } catch (e) {
+      console.log('Error saving');
+    }
+  }
+
+  const removeJobFromFavorites = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('faved-jobs');
+      const savedJobs = JSON.parse(jsonValue || "[]");
+      const newSavedJobs = savedJobs.filter((job) => job.id !== id);
+      await AsyncStorage.setItem('faved-jobs', JSON.stringify(newSavedJobs));
+
+      setIsFav(false);
     } catch (e) {
       console.log('Error saving');
     }
@@ -59,7 +80,7 @@ const JobListItem = ({id, title, cities, countries, commitment, remote, onPress}
         <Subtitle>Commitment: {commitment}</Subtitle>
         <Subtitle>Remote: {isNonEmptyArray(remote) ? 'Yes' : 'No'}</Subtitle>
       </JobWrapper>
-    <IconWrapper onPress={() => confirmSave()}>
+    <IconWrapper onPress={() => confirmAction()}>
       {isFav? <Icon source={FavFilled}/> : <Icon source={FavOutline}/>}
     </IconWrapper>
     </CardWrapper>

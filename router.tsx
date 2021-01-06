@@ -20,7 +20,7 @@ const StackNavigator = () => {
         headerTintColor: 'white',
         headerStyle: {backgroundColor: '#F5774C'},
         headerRight: () => (
-          <HeaderRight />
+          <HeaderRight title="Favs" navigateTo="Faved Jobs" />
         ),
       }}>
       <Stack.Screen
@@ -38,6 +38,7 @@ const StackNavigator = () => {
       <Stack.Screen
         name="Faved Jobs"
         component={FavedJobs}
+        options={{ headerRight: null }}
       />
     </Stack.Navigator>
   );

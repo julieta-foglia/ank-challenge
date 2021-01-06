@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const CardWrapper = styled.View`
-background-color: #dcdcdc;
+  background-color: #dcdcdc;
     padding: 20px;
     margin-top: 16px;
     margin-horizontal: 16px;
