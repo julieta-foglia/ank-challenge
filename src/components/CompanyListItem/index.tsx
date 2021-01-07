@@ -15,7 +15,7 @@ const CompanyListItem: React.FC<CompanyListItemProps> = ({
     logo,
     onPress,
 }: CompanyListItemProps) => {
-    console.log(title, subtitle);
+
     return (
         <ItemWrapper onPress={onPress}>
             <TitleWrapper>
