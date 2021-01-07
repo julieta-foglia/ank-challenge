@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { JobsComponent } from '../../components';
-import { ButtonWrapper, RemoveButton, Wrapper, Title } from './styled';
+import { ButtonWrapper, RemoveButtonText, Wrapper, Title } from './styled';
 import { REMOVE_ALL_TEXT } from '../../config/constants/texts';
 import { isNonEmptyArray } from '@apollo/client/utilities';
 
@@ -52,12 +52,8 @@ const FavedJobs: React.FC = () => {
             {isNonEmptyArray(favs) ? (
                 <>
                     <JobsComponent jobs={favs} />
-                    <ButtonWrapper>
-                        <RemoveButton
-                            color="white"
-                            onPress={() => confirmAction()}
-                            title="Remove All"
-                        />
+                    <ButtonWrapper onPress={() => confirmAction()}>
+                        <RemoveButtonText>Remove All</RemoveButtonText>
                     </ButtonWrapper>
                 </>
             ) : (

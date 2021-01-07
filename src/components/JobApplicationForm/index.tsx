@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-native';
-import { Input, FormWrapper, ErrorText, SubmitButton, ButtonWrapper } from './styled';
+import { Input, FormWrapper, ErrorText, ButtonText, ButtonWrapper } from './styled';
 import { Formik } from 'formik';
 import { schema } from './validations';
 import { useNavigation } from '@react-navigation/native';
@@ -57,8 +57,8 @@ const JobApplicationForm: React.FC = () => {
                         placeholder="541112345678 (required)"
                     />
                     {errors.phone && touched.phone && <ErrorText>Invalid phone</ErrorText>}
-                    <ButtonWrapper>
-                        <SubmitButton color="white" onPress={handleSubmit} title="Submit" />
+                    <ButtonWrapper onPress={handleSubmit}>
+                        <ButtonText>Submit</ButtonText>
                     </ButtonWrapper>
                 </FormWrapper>
             )}
