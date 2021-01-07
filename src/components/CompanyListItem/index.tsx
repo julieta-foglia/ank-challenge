@@ -9,7 +9,9 @@ interface CompanyListItemProps {
   onPress: () => void;
 }
 
-const CompanyListItem: React.FC<CompanyListItemProps> = ({ title, subtitle, logo, onPress}: CompanyListItemProps) => (
+const CompanyListItem: React.FC<CompanyListItemProps> = ({ title, subtitle, logo, onPress}: CompanyListItemProps) => {
+  console.log(title, subtitle);
+  return (
   <ItemWrapper onPress={onPress}>
     <TitleWrapper>
       <LogoImage
@@ -21,6 +23,6 @@ const CompanyListItem: React.FC<CompanyListItemProps> = ({ title, subtitle, logo
     </TitleWrapper>
     <Subtitle>{subtitle}</Subtitle>
   </ItemWrapper>
-);
+);}
 
 export default CompanyListItem;

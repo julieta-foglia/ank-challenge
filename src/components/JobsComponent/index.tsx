@@ -12,7 +12,7 @@ interface JobsComponentProps {
 const JobsComponent: React.FC<JobsComponentProps> = ({jobs, company}: JobsComponentProps) => {
   const navigation = useNavigation();
 
-  const renderItem: React.FC<JobItem> = (item: JobItem) => (
+  const renderItem = ({item}) => (
     <JobListItem
       id={item.id}
       title={item.title}

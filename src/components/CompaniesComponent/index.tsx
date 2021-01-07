@@ -12,7 +12,8 @@ interface CompanyComponentProps {
 const CompaniesComponent: React.FC<CompanyComponentProps> = ({companies}: CompanyComponentProps) => {
   const navigation = useNavigation();
 
-  const renderItem: React.FC<CompanyItem> = (item: CompanyItem) => (
+  const renderItem = ({item}) => {
+    return (
     <CompanyListItem
       title={item.name}
       subtitle={item.websiteUrl}
@@ -24,7 +25,7 @@ const CompaniesComponent: React.FC<CompanyComponentProps> = ({companies}: Compan
         })
       }
     />
-  );
+  );}
 
   return (
     <>
