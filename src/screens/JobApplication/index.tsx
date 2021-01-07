@@ -1,8 +1,16 @@
 import React from 'react';
 import {JobApplicationForm} from '../../components';
 import {Wrapper, Title, Subtitle} from './styled';
+import { RouteProp } from '@react-navigation/native';
+import { RootStackParamList } from 'types/stackParams';
 
-const JobApplication = ({route}) => (
+type JobApplicationScreenRouteProp = RouteProp<RootStackParamList, 'JobApplication'>;
+
+type JobApplicationProps = {
+  route: JobApplicationScreenRouteProp;
+};
+
+const JobApplication: React.FC<JobApplicationProps> = ({route}: JobApplicationProps) => (
   <Wrapper>
     <Subtitle>You're applying to</Subtitle>
     <Title>{route.params.job}</Title>

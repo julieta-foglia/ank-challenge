@@ -11,7 +11,7 @@ import {Formik} from 'formik';
 import {schema} from './validations';
 import {useNavigation} from '@react-navigation/native';
 
-const JobApplicationForm = () => {
+const JobApplicationForm: React.FC = () => {
   const navigation = useNavigation();
 
   const handleSubmit = () => {

@@ -2,7 +2,12 @@ import React from 'react';
 import {Wrapper, Title} from './styled';
 import {useNavigation} from '@react-navigation/native';
 
-const HeaderRight = ({title, navigateTo}) => {
+interface HeaderRightProps {
+  title: string;
+  navigateTo: string;
+}
+
+const HeaderRight: React.FC<HeaderRightProps> = ({title, navigateTo}: HeaderRightProps) => {
   const navigation = useNavigation();
 
   return (

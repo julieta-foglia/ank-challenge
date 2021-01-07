@@ -2,11 +2,17 @@ import React from 'react';
 import {Title} from './styled';
 import {List, CompanyListItem} from '../../components';
 import {useNavigation} from '@react-navigation/native';
+import { CompanyItem } from 'types/companyItem';
 
-const CompaniesComponent = ({companies}) => {
+interface CompanyComponentProps {
+  companies: CompanyItem[];
+}
+
+
+const CompaniesComponent = ({companies}: CompanyComponentProps) => {
   const navigation = useNavigation();
 
-  const renderItem = ({item}) => (
+  const renderItem = (item: CompanyItem) => (
     <CompanyListItem
       title={item.name}
       subtitle={item.websiteUrl}

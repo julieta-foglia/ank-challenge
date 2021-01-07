@@ -2,11 +2,17 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {JobListItem, List} from '../../components';
 import {Title} from './styled';
+import { JobItem } from 'types/jobItem';
 
-const JobsComponent = ({jobs, company}) => {
+interface JobsComponentProps {
+  jobs: JobItem[];
+  company?: string;
+}
+
+const JobsComponent: React.FC<JobsComponentProps> = ({jobs, company}: JobsComponentProps) => {
   const navigation = useNavigation();
 
-  const renderItem = ({item}) => (
+  const renderItem = (item: JobItem) => (
     <JobListItem
       id={item.id}
       title={item.title}

@@ -13,8 +13,22 @@ import {
 import FavOutline from '../../assets/fav-outline.png';
 import FavFilled from '../../assets/fav-filled.png';
 import {REMOVE_TEXT, SAVE_TEXT} from '../../config/constants/texts';
+import {JobItem} from 'types/jobItem';
+import {City} from 'types/city';
+import {Country} from 'types/country';
+import {Remote} from 'types/remote';
 
-const JobListItem = ({
+interface JobListItemProps {
+  id: string;
+  title: string;
+  cities: City[];
+  countries: Country[];
+  commitment: string;
+  remote: Remote[];
+  onPress: () => void;
+}
+
+const JobListItem: React.FC<JobListItemProps> = ({
   id,
   title,
   cities,
@@ -22,7 +36,7 @@ const JobListItem = ({
   commitment,
   remote,
   onPress,
-}) => {
+}: JobListItemProps) => {
   const [isFav, setIsFav] = useState(false);
   const cityNames = isNonEmptyArray(cities)
     ? cities.map(({name}) => name).join(', ')
@@ -35,20 +49,20 @@ const JobListItem = ({
     isJobInFavorites();
   }, [isFav]);
 
-  const isJobInFavorites = async () => {
+  const isJobInFavorites = async (): Promise<void> => {
     try {
       const jsonValue = await AsyncStorage.getItem('faved-jobs');
-      console.log(jsonValue);
+
       if (jsonValue) {
         const savedJobs = JSON.parse(jsonValue);
-        setIsFav(savedJobs.some((job) => job.id === id));
+        setIsFav(savedJobs.some((job: {id: string}) => job.id === id));
       }
     } catch (e) {
-      // read error
+      console.log('Error when getting favorites');
     }
   };
 
-  const confirmAction = () => {
+  const confirmAction = (): void => {
     Alert.alert(
       'Confirm',
       isFav ? REMOVE_TEXT : SAVE_TEXT,
@@ -68,7 +82,7 @@ const JobListItem = ({
     );
   };
 
-  const saveJobToFavorites = async () => {
+  const saveJobToFavorites = async (): Promise<void> => {
     try {
       const jsonValue = await AsyncStorage.getItem('faved-jobs');
       const savedJobs = JSON.parse(jsonValue || '[]');
@@ -80,20 +94,22 @@ const JobListItem = ({
 
       setIsFav(true);
     } catch (e) {
-      console.log('Error saving');
+      console.log('Error saving favorites');
     }
   };
 
-  const removeJobFromFavorites = async () => {
+  const removeJobFromFavorites = async (): Promise<void> => {
     try {
       const jsonValue = await AsyncStorage.getItem('faved-jobs');
       const savedJobs = JSON.parse(jsonValue || '[]');
-      const newSavedJobs = savedJobs.filter((job) => job.id !== id);
+      const newSavedJobs = savedJobs.filter(
+        (job: {id: string}) => job.id !== id,
+      );
       await AsyncStorage.setItem('faved-jobs', JSON.stringify(newSavedJobs));
 
       setIsFav(false);
     } catch (e) {
-      console.log('Error saving');
+      console.log('Error removing favorites');
     }
   };
 
@@ -104,7 +120,7 @@ const JobListItem = ({
         <Subtitle>City: {cityNames}</Subtitle>
         <Subtitle>Country: {countryNames}</Subtitle>
         <Subtitle>Commitment: {commitment}</Subtitle>
-        <Subtitle>Remote: {isNonEmptyArray(remote) ? 'Yes' : 'No'}</Subtitle>
+        <Subtitle>Remote: {isNonEmptyArray(remotes) ? 'Yes' : 'No'}</Subtitle>
       </JobWrapper>
       <IconWrapper onPress={() => confirmAction()}>
         {isFav ? <Icon source={FavFilled} /> : <Icon source={FavOutline} />}

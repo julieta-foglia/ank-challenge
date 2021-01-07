@@ -5,7 +5,7 @@ import {CompaniesComponent} from '../../components';
 import {Wrapper} from './styled';
 import COMPANIES_QUERY from '../../config/constants/companiesQuery';
 
-const Home = () => {
+const Home: React.FC = () => {
   const companiesQueries = useQuery(COMPANIES_QUERY);
 
   return (

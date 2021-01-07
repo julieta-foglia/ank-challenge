@@ -6,14 +6,14 @@ import {ButtonWrapper, RemoveButton, Wrapper, Title} from './styled';
 import {REMOVE_ALL_TEXT} from '../../config/constants/texts';
 import {isNonEmptyArray} from '@apollo/client/utilities';
 
-const FavedJobs = () => {
+const FavedJobs: React.FC = () => {
   const [favs, setFavs] = useState([]);
 
   useEffect(() => {
     getFavorites();
   }, [favs]);
 
-  const getFavorites = async () => {
+  const getFavorites = async (): Promise<void> => {
     try {
       const jsonValue = await AsyncStorage.getItem('faved-jobs');
       setFavs(JSON.parse(jsonValue) || []);
@@ -22,7 +22,7 @@ const FavedJobs = () => {
     }
   };
 
-  const confirmAction = () => {
+  const confirmAction = (): void => {
     Alert.alert(
       'Remove All',
       REMOVE_ALL_TEXT,
@@ -38,7 +38,7 @@ const FavedJobs = () => {
     );
   };
 
-  const removeFavorites = async () => {
+  const removeFavorites = async (): Promise<void> => {
     try {
       await AsyncStorage.removeItem('faved-jobs');
       getFavorites();
