@@ -1,33 +1,33 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const COMPANIES_QUERY = gql`
-  query Companies {
-    companies {
-      id
-      name
-      websiteUrl
-      logoUrl
-      jobs {
-        id
-        title
-        commitment {
-          title
+    query Companies {
+        companies {
+            id
+            name
+            websiteUrl
+            logoUrl
+            jobs {
+                id
+                title
+                commitment {
+                    title
+                }
+                cities {
+                    id
+                    name
+                }
+                countries {
+                    id
+                    name
+                }
+                remotes {
+                    id
+                    name
+                }
+            }
         }
-        cities {
-          id
-          name
-        }
-        countries {
-          id
-          name
-        }
-        remotes {
-          id
-          name
-        }
-      }
     }
-  }
 `;
 
 export default COMPANIES_QUERY;
