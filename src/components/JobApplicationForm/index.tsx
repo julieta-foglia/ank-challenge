@@ -14,7 +14,7 @@ import {useNavigation} from '@react-navigation/native';
 const JobApplicationForm: React.FC = () => {
   const navigation = useNavigation();
 
-  const handleSubmit = () => {
+  const handleSubmit = (): void => {
     Alert.alert(
       'Application Sent',
       'Your application was sent successfully',

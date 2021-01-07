@@ -13,7 +13,6 @@ import {
 import FavOutline from '../../assets/fav-outline.png';
 import FavFilled from '../../assets/fav-filled.png';
 import {REMOVE_TEXT, SAVE_TEXT} from '../../config/constants/texts';
-import {JobItem} from 'types/jobItem';
 import {City} from 'types/city';
 import {Country} from 'types/country';
 import {Remote} from 'types/remote';
@@ -120,7 +119,7 @@ const JobListItem: React.FC<JobListItemProps> = ({
         <Subtitle>City: {cityNames}</Subtitle>
         <Subtitle>Country: {countryNames}</Subtitle>
         <Subtitle>Commitment: {commitment}</Subtitle>
-        <Subtitle>Remote: {isNonEmptyArray(remotes) ? 'Yes' : 'No'}</Subtitle>
+        <Subtitle>Remote: {isNonEmptyArray(remote) ? 'Yes' : 'No'}</Subtitle>
       </JobWrapper>
       <IconWrapper onPress={() => confirmAction()}>
         {isFav ? <Icon source={FavFilled} /> : <Icon source={FavOutline} />}

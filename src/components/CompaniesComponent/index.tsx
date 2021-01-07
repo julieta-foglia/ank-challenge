@@ -9,10 +9,10 @@ interface CompanyComponentProps {
 }
 
 
-const CompaniesComponent = ({companies}: CompanyComponentProps) => {
+const CompaniesComponent: React.FC<CompanyComponentProps> = ({companies}: CompanyComponentProps) => {
   const navigation = useNavigation();
 
-  const renderItem = (item: CompanyItem) => (
+  const renderItem: React.FC<CompanyItem> = (item: CompanyItem) => (
     <CompanyListItem
       title={item.name}
       subtitle={item.websiteUrl}
