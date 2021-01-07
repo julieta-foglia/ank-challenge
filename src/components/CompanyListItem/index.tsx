@@ -1,6 +1,6 @@
 import React from 'react';
 import { ItemWrapper, TitleWrapper, Title, Subtitle, LogoImage } from './styled';
-import { DEFAULT_LOGO_URL } from 'config/constants/urls';
+import { DEFAULT_LOGO_URL } from '../../config/constants/urls';
 
 interface CompanyListItemProps {
     title: string;

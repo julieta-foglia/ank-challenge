@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title } from './styled';
-import { List, CompanyListItem } from 'components';
+import { List, CompanyListItem } from '../../components';
 import { useNavigation } from '@react-navigation/native';
 import { CompanyItem } from 'types/companyItem';
 
